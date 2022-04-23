@@ -1,0 +1,5 @@
+termcolor
+pyautogui
+pynput
+pywinauto
+wmi
