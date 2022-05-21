@@ -21,6 +21,8 @@ def click_on_image(
         fp.write(result)
     img    = Image.open("tmpfile.png")
     img_np = np.array(img)
+    if img_np.shape[-1] == 4:
+        img_np = img_np[:,:,:3]
 
 
     for sub_path_image in path_images:

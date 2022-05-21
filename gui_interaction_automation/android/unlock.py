@@ -4,7 +4,7 @@ import numpy as np
 import PIL.Image as Image
 from ppadb.device import Device
 
-def unlock(device:Device, password:str) -> bool:
+def unlock(device:Device, password:str, debug:bool=False) -> bool:
     """Returns whether the homescreen was unlocked or not. Currently just checks if the screen is very dark to decide if it's blocked"""
 
     to_return : bool = False
@@ -24,5 +24,8 @@ def unlock(device:Device, password:str) -> bool:
         device.shell("input keyevent 66")
         time.sleep(2.0)
         to_return = True
+        if debug: print ("Device was unlocked")
+    else:
+        if debug: print ("Device wasn't blocked")
 
     return to_return
